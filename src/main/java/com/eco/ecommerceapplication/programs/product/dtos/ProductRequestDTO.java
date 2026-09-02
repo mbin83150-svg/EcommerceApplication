@@ -1,6 +1,7 @@
 package com.eco.ecommerceapplication.programs.product.dtos;
 
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import lombok.*;
@@ -17,11 +18,11 @@ public class ProductRequestDTO
 
 
          private String productName;
-         private double price;
-         private int quantity;
+         private BigDecimal price;
+         private Integer quantity;
          private String description;
 
-         List<String> imageurl ;
-
+       private  List<String> imageurl ;
+    private List<Long> categoryIds;
 }
 

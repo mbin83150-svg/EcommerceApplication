@@ -1,5 +1,7 @@
 package com.eco.ecommerceapplication.programs.product;
 
+import com.eco.ecommerceapplication.Categories.Category;
+import com.eco.ecommerceapplication.Categories.CategoryRepo;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
@@ -20,23 +22,19 @@ import java.util.List;
 public class ProductServiceImplementation implements ProductService {
     //object initialize
     private final ProductRepo productRepo;
-    
-    private LocalImageStorage localImageStorage;
+    private final CategoryRepo categoryRepo;
+    private final LocalImageStorage localImageStorage;
 
 
 
-    public  ProductServiceImplementation(ProductRepo productRepo , LocalImageStorage localImageStorage)  { 
-        this.productRepo = productRepo;
-       
-        this.localImageStorage = localImageStorage;
-    }
 
 
 
 
 //Attach Image 
 
-@Transactional
+
+
 private List<ProductImage> attachImages(Product product, MultipartFile[] files) {
     List<String> storedUrls = localImageStorage.store(files);
     List<ProductImage> newImages = storedUrls.stream()
@@ -77,14 +75,21 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
     //=======================================================
     //Mapper method
      private ProductResponseDTO mapToResponseDTO(Product product){
-        return ProductResponseDTO.builder()
-        .productId(product.getProductId())
-        .productName(product.getProductName())
-        .quantity(product.getQuantity())
-        .price(product.getPrice())
-        .description(product.getDescription())
-        //.imageurl(product.getImageurl())
-        .build();
+
+         return ProductResponseDTO.builder()
+                 .productId(product.getProductId())
+                 .productName(product.getProductName())
+                 .quantity(product.getQuantity())
+                 .price(product.getPrice())
+                 .description(product.getDescription())
+                 .categories(
+                         product.getCategories()
+                                 .stream()
+                                 .map(Category::getCategoryName)
+                                 .toList()
+                 )
+                 .build();
+
     }
 
 
@@ -97,16 +102,20 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
     @Override
     public ProductResponseDTO addProduct(ProductRequestDTO productRequestDTO) {
 
+        List<Category> categories =
+                categoryRepo.findAllById(productRequestDTO.getCategoryIds());
+
         Product product = Product.builder()
                 .productName(productRequestDTO.getProductName())
                 .price(productRequestDTO.getPrice())
                 .quantity(productRequestDTO.getQuantity())
                 .description(productRequestDTO.getDescription())
-               // .imageurl(productRequestDTO.getImageurl()) 
+                .categories(categories)
                 .build();
 
         Product savedProduct = productRepo.save(product);
-                  return mapToResponseDTO(savedProduct);
+
+        return mapToResponseDTO(savedProduct);
     }
 
 
@@ -119,18 +128,27 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
     //update product
     @Transactional
     @Override
-        public ProductResponseDTO updateProduct(ProductRequestDTO productRequestDTO, long productId) {
+    public ProductResponseDTO updateProduct(
+            ProductRequestDTO productRequestDTO,
+            long productId) {
+
         Product product = productRepo.findById(productId)
                 .orElseThrow(() ->
                         new ProductNotFoundException("Product not found"));
+
         product.setProductName(productRequestDTO.getProductName());
         product.setQuantity(productRequestDTO.getQuantity());
         product.setPrice(productRequestDTO.getPrice());
         product.setDescription(productRequestDTO.getDescription());
-       // product.setImageurl(productRequestDTO.getImageurl());
+
+        List<Category> categories =
+                categoryRepo.findAllById(productRequestDTO.getCategoryIds());
+
+        product.setCategories(categories);
 
         Product updatedProduct = productRepo.save(product);
-                return mapToResponseDTO(updatedProduct);
+
+        return mapToResponseDTO(updatedProduct);
     }
 
 

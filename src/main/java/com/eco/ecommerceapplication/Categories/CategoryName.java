@@ -1,0 +1,16 @@
+package com.eco.ecommerceapplication.Categories;
+
+public enum CategoryName {
+    ELECTRONICS,
+    FASHION_AND_APPAREL,
+    HOME_AND_KITCHEN,
+    BEAUTY_AND_PERSONAL_CARE,
+    SPORTS_AND_FITNESS,
+    TOYS_AND_BABY_PRODUCTS,
+    BOOKS_AND_STATIONERY,
+    GROCERY_AND_GOURMET,
+    AUTOMOTIVE,
+    PET_SUPPLIES,
+    HEALTH_AND_WELLNESS,
+    OFFICE_PRODUCTS
+}
