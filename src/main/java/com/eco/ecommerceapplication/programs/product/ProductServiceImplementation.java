@@ -24,17 +24,7 @@ public class ProductServiceImplementation implements ProductService {
     private final ProductRepo productRepo;
     private final CategoryRepo categoryRepo;
     private final LocalImageStorage localImageStorage;
-
-
-
-
-
-
-
-//Attach Image 
-
-
-
+//Attach Image
 private List<ProductImage> attachImages(Product product, MultipartFile[] files) {
     List<String> storedUrls = localImageStorage.store(files);
     List<ProductImage> newImages = storedUrls.stream()
@@ -47,18 +37,8 @@ private List<ProductImage> attachImages(Product product, MultipartFile[] files) 
     productRepo.save(product);
     return newImages;
 }
-
-
-
-
-
-
-  
 //================================================
 //=========Upload Image ==========================
-
-
-
   @Transactional
 @Override
 public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] files) {
@@ -71,8 +51,7 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
             .map(this::mapToImageResponse)
             .toList();
 }
-
-    //=======================================================
+//=======================================================
     //Mapper method
      private ProductResponseDTO mapToResponseDTO(Product product){
 
@@ -89,13 +68,7 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
                                  .toList()
                  )
                  .build();
-
     }
-
-
-
-
-
     //=======================================================
     //register product
     @Transactional
@@ -117,13 +90,6 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
 
         return mapToResponseDTO(savedProduct);
     }
-
-
-
-
-
-
-
     //========================================================
     //update product
     @Transactional
@@ -151,17 +117,6 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
         return mapToResponseDTO(updatedProduct);
     }
 
-
-
-
-
-
-
-
-
-
-
-
     //delete product
     @Override
     @Transactional
@@ -179,13 +134,6 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
         return products.stream()
                 .map(this::mapToResponseDTO).toList();                
     }
-    
-    
-
-
-
-
-
 
 private ProductImageResponse mapToImageResponse(ProductImage image) {
     return ProductImageResponse.builder()
@@ -193,14 +141,5 @@ private ProductImageResponse mapToImageResponse(ProductImage image) {
             .imageUrl(image.getImageUrl())
             .build();
 }
-
-
-
-
-
-
-
-
-
 }
 
