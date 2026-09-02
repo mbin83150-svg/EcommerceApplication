@@ -1,0 +1,65 @@
+[33mff9aed4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Add product category in project
+ .gitattributes                                            |   0
+ .gitignore                                                |   0
+ .metadata/.lock                                           |   0
+ .metadata/.lock_info                                      |   0
+ .metadata/.log                                            |   0
+ .metadata/.mylyn/repositories.xml.zip                     | Bin
+ .../.projects/.org.eclipse.egit.core.cmp/.location        | Bin
+ .../.root/.indexes/history.version                        |   0
+ .../.root/.indexes/properties.index                       | Bin
+ .../.root/.indexes/properties.version                     |   0
+ .../.plugins/org.eclipse.core.resources/.root/1.tree      | Bin
+ .../.safetable/org.eclipse.core.resources                 | Bin
+ .metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi |   0
+ .../org.eclipse.jdt.core/assumedExternalFilesCache        | Bin
+ .../.plugins/org.eclipse.jdt.core/externalFilesCache      | Bin
+ .metadata/.plugins/org.eclipse.jdt.core/javaLikeNames.txt |   0
+ .../.plugins/org.eclipse.jdt.core/nonChainingJarsCache    | Bin
+ .../org.eclipse.jdt.core/variablesAndContainers.dat       | Bin
+ .metadata/.plugins/org.eclipse.jdt.launching/.install.xml |   0
+ .../.plugins/org.eclipse.jdt.launching/libraryInfos.xml   |   0
+ .metadata/.plugins/org.eclipse.jdt.ui/OpenTypeHistory.xml |   0
+ .../org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml       |   0
+ .metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml |   0
+ .../.plugins/org.eclipse.m2e.core.ui/dialog_settings.xml  |   0
+ .../.plugins/org.eclipse.m2e.core/workspaceState.ser      | Bin
+ .metadata/.plugins/org.eclipse.m2e.logback/0.log          |   0
+ .../logback.2.7.101.20251017-1242.xml                     |   0
+ .../.plugins/org.eclipse.mylyn.github.ui/avatars.ser      | Bin
+ .../.plugins/org.eclipse.oomph.setup/workspace.setup      |   0
+ .../.plugins/org.eclipse.tips.ide/dialog_settings.xml     |   0
+ .metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml |   0
+ .metadata/.plugins/org.eclipse.ui.intro/introstate        |   0
+ .../.plugins/org.eclipse.ui.workbench/dialog_settings.xml |   0
+ .../.plugins/org.eclipse.ui.workbench/workingsets.xml     |   0
+ .metadata/version.ini                                     |   0
+ .mvn/wrapper/maven-wrapper.properties                     |   0
+ README.md                                                 |   0
+ mvnw                                                      |   0
+ mvnw.cmd                                                  |   0
+ pom.xml                                                   |   0
+ .../com/eco/ecommerceapplication/Categories/Category.java |  37 [32m+++++++++++++++[m
+ .../eco/ecommerceapplication/Categories/CategoryName.java |  16 [32m+++++++[m
+ .../eco/ecommerceapplication/Categories/CategoryRepo.java |   6 [32m+++[m
+ .../eco/ecommerceapplication/EcommerceApplication.java    |   0
+ .../java/com/eco/ecommerceapplication/Entites/Cart.java   |   0
+ .../com/eco/ecommerceapplication/Entites/CartItems.java   |   0
+ .../com/eco/ecommerceapplication/Entites/Customer.java    |   0
+ .../java/com/eco/ecommerceapplication/Entites/Order.java  |   0
+ .../com/eco/ecommerceapplication/Entites/OrderItems.java  |   0
+ .../Exceptions/ProductNotFoundException.java              |   0
+ .../eco/ecommerceapplication/config/PageableConfig.java   |   0
+ .../com/eco/ecommerceapplication/config/WebConfig.java    |   0
+ .../filestorage/uploads/products/LocalImageStorage.java   |   0
+ .../filestorage/uploads/products/ProductImage.java        |   0
+ .../uploads/products/dto/ProductImageResponse.java        |   0
+ .../ecommerceapplication/programs/product/Product.java    |  16 [32m++++++[m[31m-[m
+ .../programs/product/ProductRepo.java                     |   0
+ .../programs/product/ProductService.java                  |   0
+ .../programs/product/ProductServiceImplementation.java    |  60 [32m+++++++++++++++[m[31m---------[m
+ .../programs/product/dtos/ProductRequestDTO.java          |   9 [32m++[m[31m--[m
+ .../programs/product/dtos/ProductResponseDTO.java         |  19 [32m+++++[m[31m---[m
+ src/main/resources/application.properties                 |   0
+ .../EcommerceApplication/EcommerceApplicationTests.java   |   0
+ 63 files changed, 130 insertions(+), 33 deletions(-)
