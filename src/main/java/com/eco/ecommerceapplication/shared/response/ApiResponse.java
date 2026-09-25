@@ -29,4 +29,8 @@ public class ApiResponse<T> {
                 .message(message)
                 .build();
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
 }

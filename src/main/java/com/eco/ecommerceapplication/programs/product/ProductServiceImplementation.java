@@ -1,7 +1,12 @@
 package com.eco.ecommerceapplication.programs.product;
 
+<<<<<<< HEAD
 import com.eco.ecommerceapplication.programs.categories.Category;
 import com.eco.ecommerceapplication.programs.categories.CategoryService;
+=======
+import com.eco.ecommerceapplication.Categories.Category;
+import com.eco.ecommerceapplication.Categories.CategoryRepo;
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
@@ -22,7 +27,11 @@ import java.util.List;
 public class ProductServiceImplementation implements ProductService {
     //object initialize
     private final ProductRepo productRepo;
+<<<<<<< HEAD
     private final CategoryService categoryService;
+=======
+    private final CategoryRepo categoryRepo;
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
     private final LocalImageStorage localImageStorage;
 //Attach Image
 private List<ProductImage> attachImages(Product product, MultipartFile[] files) {
@@ -53,7 +62,11 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
 }
 //=======================================================
     //Mapper method
+<<<<<<< HEAD
      private ProductResponseDTO mapToResponseDTO(Product product ){
+=======
+     private ProductResponseDTO mapToResponseDTO(Product product){
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
 
          return ProductResponseDTO.builder()
                  .productId(product.getProductId())
@@ -61,6 +74,7 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
                  .quantity(product.getQuantity())
                  .price(product.getPrice())
                  .description(product.getDescription())
+<<<<<<< HEAD
                  .imageUrl(
                          product.getImages()
                                  .stream()
@@ -69,13 +83,18 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
                                  .toList()
                  )
 
+=======
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
                  .categories(
                          product.getCategories()
                                  .stream()
                                  .map(Category::getCategoryName)
                                  .toList()
                  )
+<<<<<<< HEAD
 
+=======
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
                  .build();
     }
     //=======================================================
@@ -85,7 +104,11 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
     public ProductResponseDTO addProduct(ProductRequestDTO productRequestDTO) {
 
         List<Category> categories =
+<<<<<<< HEAD
                 categoryService.resolveOrCreateCategories(productRequestDTO.getCategoryName());
+=======
+                categoryRepo.findAllById(productRequestDTO.getCategoryIds());
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
 
         Product product = Product.builder()
                 .productName(productRequestDTO.getProductName())
@@ -117,7 +140,11 @@ public List<ProductImageResponse> uploadImages(Long productId, MultipartFile[] f
         product.setDescription(productRequestDTO.getDescription());
 
         List<Category> categories =
+<<<<<<< HEAD
                 categoryService.resolveOrCreateCategories(productRequestDTO.getCategoryName());
+=======
+                categoryRepo.findAllById(productRequestDTO.getCategoryIds());
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
 
         product.setCategories(categories);
 

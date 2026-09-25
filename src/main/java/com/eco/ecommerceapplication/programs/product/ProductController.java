@@ -1,13 +1,25 @@
 package com.eco.ecommerceapplication.programs.product;
 
+<<<<<<< HEAD
+=======
+import com.eco.ecommerceapplication.filestorage.uploads.products.ProductImageRepo;
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
 import com.eco.ecommerceapplication.filestorage.uploads.products.dto.ProductImageResponse;
 import com.eco.ecommerceapplication.programs.product.dtos.ProductRequestDTO;
 import com.eco.ecommerceapplication.programs.product.dtos.ProductResponseDTO;
 import com.eco.ecommerceapplication.shared.response.ApiResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+<<<<<<< HEAD
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+=======
+import org.hibernate.annotations.Parameter;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.jmx.export.annotation.ManagedOperation;
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;

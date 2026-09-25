@@ -22,8 +22,13 @@ public class ProductRequestDTO
          private Integer quantity;
          private String description;
 
+<<<<<<< HEAD
        private  List<String> imageUrl ;
     private List<Long> categoryIds;
     private List<String> categoryName;
+=======
+       private  List<String> imageurl ;
+    private List<Long> categoryIds;
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
 }
 

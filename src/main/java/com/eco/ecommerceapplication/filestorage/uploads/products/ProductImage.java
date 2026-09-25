@@ -30,7 +30,11 @@ public class ProductImage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long imageId;
 
+<<<<<<< HEAD
 
+=======
+    @Column(nullable = false)
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
     private String imageUrl;
 
     @Column(nullable = false)
@@ -42,8 +46,11 @@ public class ProductImage {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
 }

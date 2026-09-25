@@ -20,7 +20,11 @@ public class ProductResponseDTO {
 
      private List<String> categories;
 
+<<<<<<< HEAD
      private List<String> imageUrl ;
+=======
+     private List<String> imageurl ;
+>>>>>>> 84bb21bb077be285a673840d5d72ab1c77390f50
 
 
 
